@@ -1,0 +1,22 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/loaisp/update/<%= loaihang.LoaiHangID %>" method="post">
+                            <div class="form-group">
+                                <label for="TenLH">Tên Hàng</label>
+                                <input type="text" name="TenLH" value="<%= loaihang.TenLH %>" class="form-control" id="TenLH" placeholder="<%= loaihang.TenLH %>">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

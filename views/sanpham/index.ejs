@@ -1,0 +1,105 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+                        <main>
+                            <div class="container-fluid px-4">
+                                <h1 class="mt-4">sản phẩm</h1>
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item active"> sản phẩm</li>
+                                </ol>
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-table me-1"></i> Thông tin
+                                    </div>
+                                    <a href="/admin/sanpham/create">
+                                        <button class="btn-info mr-10" style="float: left; color: white;">Add</button>
+                                    </a>
+                                    <div class="card-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">LoaiHangID</th>
+                                                    <th scope="col">SPID</th>
+                                                    <th scope="col">Tên SP</th>
+                                                    <th scope="col">Đơn vị tính</th>
+                                                    <th scope="col">Sl tồn</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% sanpham.forEach(function(item) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= item.LoaiHangID %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.SPID %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.Tensp %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.Dvtinh %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.Slton %>
+                                                        </td>
+                                                        <td>
+                                                            <a href="/admin/sanpham/update/<%= item.SPID %>">
+                                                                <button class="btn-info">edit</button>
+                                                            </a>
+                                                            <a href="">
+                                                                <button onclick="deleteUser('<%= item.SPID %>')" class="btn-danger">delete</button>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                                                        <script>
+                                                            function deleteUser(userId) {
+                                                                if (confirm('Bạn có chắc chắn muốn xóa? ')) {
+                                                                    fetch(`/admin/sanpham/delete/${userId}`, {
+                                                                            method: 'DELETE',
+                                                                        })
+                                                                        .then(response => {
+                                                                            if (!response.ok) {
+                                                                                throw new Error('Lỗi khi xóa');
+                                                                            }
+                                                                            return response.json();
+                                                                        })
+                                                                        .then(data => {
+                                                                            alert(data.message);
+                                                                            location.reload(); // Tải lại trang sau khi xóa thành công
+                                                                        })
+                                                                        .catch(error => {
+                                                                            console.error(error);
+                                                                            alert('Đã có lỗi xảy ra.');
+                                                                        });
+                                                                }
+                                                            }
+                                                        </script>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                        <footer class="py-4 bg-light mt-auto">
+                            <div class="container-fluid px-4">
+                                <div class="d-flex align-items-center justify-content-between small">
+                                    <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                                    <div>
+                                        <a href="#">Privacy Policy</a> &middot;
+                                        <a href="#">Terms &amp; Conditions</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

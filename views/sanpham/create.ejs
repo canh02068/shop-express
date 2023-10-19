@@ -1,0 +1,38 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/sanpham/create" method="post">
+                            <div class="form-group">
+                                <label for="maloai">Mã loại</label>
+                                <input type="text" name="LoaiHangID" required class="form-control" id="maloai" aria-describedby="emailHelp" placeholder="Mã Loại">
+                            </div>
+                            <div class="form-group">
+                                <label for="TenLH">Mã Sản Phẩm</label>
+                                <input type="text" name="SPID" class="form-control" id="SPID" placeholder="Mã Sản Phẩm">
+                            </div>
+                            <div class="form-group">
+                                <label for="TenLH">Tên Sản Phẩm</label>
+                                <input type="text" name="Tensp" class="form-control" id="Tensp" placeholder="Tên Sản Phẩm">
+                            </div>
+                            <div class="form-group">
+                                <label for="TenLH">Đơn Vị Tính</label>
+                                <input type="text" name="Dvtinh" class="form-control" id="Dvtinh" placeholder="Đơn Vị Tính">
+                            </div>
+                            <div class="form-group">
+                                <label for="TenLH">Số Lượng Tồn</label>
+                                <input type="text" name="Slton" class="form-control" id="Slton" placeholder="Số Lượng Tồn">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

@@ -1,0 +1,29 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/sanpham/update/<%= sanpham.SPID %>" method="post">
+                            <div class="form-group">
+                                <label for="LoaiHangID">Mã Loại</label>
+                                <input type="text" name="LoaiHangID" value="<%= sanpham.LoaiHangID %>" class="form-control" id="LoaiHangID" placeholder="<%= sanpham.LoaiHangID %>">
+                                <label for="Tensp">Tên Sản phẩm</label>
+                                <input type="text" name="Tensp" value="<%= sanpham.Tensp %>" class="form-control" id="Tensp" placeholder="<%= sanpham.Tensp %>">
+                                <label for="Dvtinh">Đơn Vị Tính</label>
+                                <input type="text" name="Dvtinh" value="<%= sanpham.Dvtinh %>" class="form-control" id="Dvtinh" placeholder="<%= sanpham.Dvtinh %>">
+                                <label for="Slton">Số Lượng Tồn</label>
+                                <input type="text" name="Slton" value="<%= sanpham.Slton %>" class="form-control" id="Slton" placeholder="<%= sanpham.Slton %>">
+                            
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

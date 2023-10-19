@@ -1,0 +1,26 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/loaisp/create" method="post">
+                            <div class="form-group">
+                                <label for="maloai">Mã loại</label>
+                                <input type="text" name="LoaiHangID" required class="form-control" id="maloai" aria-describedby="emailHelp" placeholder="Mã Loại">
+                            </div>
+                            <div class="form-group">
+                                <label for="TenLH">Tên Hàng</label>
+                                <input type="text" name="TenLH" class="form-control" id="TenLH" placeholder="Tên Loại hàng">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>
