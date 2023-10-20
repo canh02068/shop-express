@@ -1,0 +1,26 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%> 
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/nhasx/update/<%= nhasx.MaNSX %>" method="post">
+                            <div class="form-group">
+                                <label for="TenNSX">Tên Nhà Sản Xuất</label>
+                                <input type="text" name="TenNSX" value="<%= nhasx.TenNSX %>" class="form-control" id="TenNSX" placeholder="<%= nhasx.TenNSX %>">
+                            </div>
+                            <div class="form-group">
+                                <label for="MoTa">Mô Tả</label>
+                                <input type="text" name="MoTa" value="<%= nhasx.MoTa %>" class="form-control" id="MoTa" placeholder="<%= nhasx.MoTa %>">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

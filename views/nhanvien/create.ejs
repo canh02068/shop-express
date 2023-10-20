@@ -1,0 +1,46 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/nhanvien/create" method="post">
+                            <div class="form-group">
+                                <label for="nhanvienID">ID</label>
+                                <input type="text" name="nhanvienID" required class="form-control" id="nhanvienID" aria-describedby="emailHelp" placeholder="Mã Nhân Viên">
+                            </div>
+                            <div class="form-group">
+                                <label for="HotenNV">Họ Tên Nhân Viên</label>
+                                <input type="text" name="HotenNV" class="form-control" id="HotenNV" placeholder="Họ Tên Nhân Viên">
+                            </div>
+                            <div class="form-group">
+                                <label for="GioitinhNV">Họ Tên Nhân Viên</label>
+                                <input type="text" name="GioitinhNV" class="form-control" id="GioitinhNV" placeholder="Giới Tính">
+                            </div>
+                            <div class="form-group">
+                                <label for="NgaysinhNV">Ngày Sinh</label>
+                                <input type="NgaysinhNV" name="NgaysinhNV" class="form-control" id="NgaysinhNV" placeholder="Ngày Sinh">
+                            </div>
+                            <div class="form-group">
+                                <label for="diachiNV">Địa Chỉ</label>
+                                <input type="text" name="diachiNV" class="form-control" id="diachiNV" placeholder="Địa Chỉ">
+                            </div>
+                            <div class="form-group">
+                                <label for="EmailNv">Email</label>
+                                <input type="text" name="EmailNv" class="form-control" id="EmailNv" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="SdtNV">Số Điện Thoại</label>
+                                <input type="text" name="SdtNV" class="form-control" id="SdtNV" placeholder="Sdt">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

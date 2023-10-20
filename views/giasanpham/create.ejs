@@ -1,0 +1,38 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/giasanpham/create" method="post">
+                            <div class="form-group">
+                                <label for="MaGiaSanPHam">MaGiaSanPHam</label>
+                                <input type="text" name="MaGiaSanPHam" required class="form-control" id="MaGiaSanPHam" aria-describedby="emailHelp" placeholder="Mã Giá Sản Phẩm">
+                            </div>
+                            <div class="form-group">
+                                <label for="SPID">Mã Sản Phẩm</label>
+                                <input type="text" name="SPID" class="form-control" id="SPID" placeholder="Mã Sản Phẩm">
+                            </div>
+                            <div class="form-group">
+                                <label for="NgayBatDau">Ngày Bắt Đầu</label>
+                                <input type="text" name="NgayBatDau" class="form-control" id="NgayBatDau" placeholder="Ngày Bắt Đầu">
+                            </div>
+                            <div class="form-group">
+                                <label for="NgayKetThuc">Ngày Kết Thúc</label>
+                                <input type="text" name="NgayKetThuc" class="form-control" id="NgayKetThuc" placeholder="Ngày Kết Thúc">
+                            </div>
+                            <div class="form-group">
+                                <label for="Gia">Giá</label>
+                                <input type="text" name="Gia" class="form-control" id="SGiaPID" placeholder="Giá">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

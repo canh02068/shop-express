@@ -1,0 +1,31 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/khachhang/update/<%= khachhang.KhachHangID %>" method="post">
+                            <div class="form-group">
+                                <label for="HotenKH">Họ Tên Khách Hàng</label>
+                                <input type="text" name="HotenKH" value="<%= khachhang.HotenKH %>" class="form-control" id="HotenKH" placeholder="<%= khachhang.HotenKH %>">
+                                <label for="NgaySinh">Ngày Sinh</label>
+                                <input type="text" name="NgaySinh" value="<%= khachhang.NgaySinh %>" class="form-control" id="NgaySinh" placeholder="<%= khachhang.NgaySinh %>">
+                                <label for="DiachiKH">Địa Chỉ</label>
+                                <input type="text" name="DiachiKH" value="<%= khachhang.DiachiKH %>" class="form-control" id="DiachiKH" placeholder="<%= khachhang.DiachiKH %>">
+                                <label for="EmailKH">Email</label>
+                                <input type="text" name="EmailKH" value="<%= khachhang.EmailKH %>" class="form-control" id="EmailKH" placeholder="<%= khachhang.EmailKH %>">
+                                <label for="SdtKH">Số Điện Thoai</label>
+                                <input type="text" name="SdtKH" value="<%= khachhang.SdtKH %>" class="form-control" id="SdtKH" placeholder="<%= khachhang.SdtKH %>">
+                    
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

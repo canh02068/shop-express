@@ -1,0 +1,30 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/nhasx/create" method="post">
+                            <div class="form-group">
+                                <label for="MaNSX">ID</label>
+                                <input type="text" name="MaNSX" required class="form-control" id="MaNSX" aria-describedby="emailHelp" placeholder="MaNSX">
+                            </div>
+                            <div class="form-group">
+                                <label for="TenNSX">Tên Nhà Sản Xuất</label>
+                                <input type="text" name="TenNSX " class="form-control" id="TenNSX" placeholder="TenNSX">
+                            </div>
+                            <div class="form-group">
+                                <label for="MoTa">Mô Tả</label>
+                                <input type="text" name="MoTa" class="form-control" id="MoTa" placeholder="Mô Tả">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Thêm</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

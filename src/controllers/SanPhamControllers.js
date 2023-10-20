@@ -52,10 +52,10 @@ exports.getsanphamById = (req, res) => {
 
 // Thêm một loại sản phẩm mới
 exports.createsanpham = (req, res) => {
-    const {LoaiHangID, SPID, Tensp, Dvtinh, Slton} = req.body;
+    const {LoaiHangID, SPID, Tensp, Size, Slton, Anhsp} = req.body;
 
     db.query(
-        'INSERT INTO sanpham (LoaiHangID, SPID, Tensp, Dvtinh, Slton) VALUES (?, ?, ?, ?, ?)', [LoaiHangID, SPID, Tensp, Dvtinh, Slton],
+        'INSERT INTO sanpham (LoaiHangID, SPID, Tensp, Size, Slton, Anhsp) VALUES (?, ?, ?, ?, ?, ?. ?)', [LoaiHangID, SPID, Tensp, Size, Slton, Anhsp],
         (err, results) => {
             if (err) {
                 console.error('Lỗi truy vấn cơ sở dữ liệu:', err);
@@ -73,11 +73,11 @@ exports.createsanpham2 = (req, res) => {
 // Sửa thông tin một loại sản phẩm bằng ID
 exports.updatesanpham = (req, res) => {
     const { id } = req.params;
-    const { LoaiHangID, Tensp, Dvtinh, Slton} = req.body;
+    const { LoaiHangID, Tensp, Size, Slton, Anhsp} = req.body;
     // const updatedAt = null;
 
     db.query(
-        'UPDATE sanpham SET LoaiHangID = ?, Tensp = ?, Dvtinh = ?, Slton = ? WHERE SPID = ?', [LoaiHangID, Tensp, Dvtinh, Slton, id],
+        'UPDATE sanpham SET LoaiHangID = ?, Tensp = ?, Size = ?, Slton = ?, Anhsp = ? WHERE SPID = ?', [LoaiHangID, Tensp, Size, Slton, Anhsp, id],
         (err, results) => {
             if (err) {
                 console.error('Lỗi truy vấn cơ sở dữ liệu:', err);
@@ -133,9 +133,9 @@ exports.deletesanpham = (req, res) => {
             console.error('Lỗi truy vấn cơ sở dữ liệu:', err);
             res.status(500).send('Lỗi truy vấn cơ sở dữ liệu');
         } else if (results.affectedRows === 0) {
-            res.status(404).send('Không tìm thấy loại sản phẩm để xóa');
+            res.status(404).send('Không tìm thấy sản phẩm để xóa');
         } else {
-            res.json({ message: 'Loại sản phẩm đã được xóa thành công' });
+            res.json({ message: 'Sản phẩm đã được xóa thành công' });
         }
     });
 };

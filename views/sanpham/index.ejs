@@ -28,8 +28,9 @@
                                                     <th scope="col">LoaiHangID</th>
                                                     <th scope="col">SPID</th>
                                                     <th scope="col">Tên SP</th>
-                                                    <th scope="col">Đơn vị tính</th>
+                                                    <th scope="col">Size</th>
                                                     <th scope="col">Sl tồn</th>
+                                                    <th scope="col">Ảnh</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -45,10 +46,14 @@
                                                             <%= item.Tensp %>
                                                         </td>
                                                         <td>
-                                                            <%= item.Dvtinh %>
+                                                            <%= item.Size %>
                                                         </td>
                                                         <td>
                                                             <%= item.Slton %>
+                                                        </td>
+                                                        <td>
+                                                            <img height="80px" src="/img/<%= item.Anhsp %>" alt="">
+                                                            
                                                         </td>
                                                         <td>
                                                             <a href="/admin/sanpham/update/<%= item.SPID %>">

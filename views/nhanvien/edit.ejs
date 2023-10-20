@@ -1,0 +1,33 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/nhanvien/update/<%= nhanvien.NhanVienID %>" method="post">
+                            <div class="form-group">
+                                <label for="HotenNV">Họ Tên Nhân Viên</label>
+                                <input type="text" name="HotenNV" value="<%= nhanvien.HotenNV %>" class="form-control" id="HotenNV" placeholder="<%= nhanvien.HotenNV %>">
+                                <label for="GioitinhNV">Giới Tính</label>
+                                <input type="text" name="GioitinhNV" value="<%= nhanvien.GioitinhNV %>" class="form-control" id="GioitinhNV" placeholder="<%= nhanvien.GioitinhNV %>">
+                                <label for="NgaysinhNV">Ngày Sinh</label>
+                                <input type="text" name="NgaysinhNV" value="<%= nhanvien.NgaysinhNV %>" class="form-control" id="NgaysinhNV" placeholder="<%= nhanvien.NgaysinhNV %>">
+                                <label for="diachiNV">Địa Chỉ</label>
+                                <input type="text" name="diachiNV" value="<%= nhanvien.diachiNV %>" class="form-control" id="diachiNV" placeholder="<%= nhanvien.diachiNV %>">
+                                <label for="EmailNv">Email</label>
+                                <input type="text" name="EmailNv" value="<%= nhanvien.EmailNv %>" class="form-control" id="EmailNv" placeholder="<%= nhanvien.EmailNv %>">
+                                <label for="SdtNV">Số Điện Thoai</label>
+                                <input type="text" name="SdtNV" value="<%= nhanvien.SdtNV %>" class="form-control" id="SdtNV" placeholder="<%= nhanvien.SdtNV %>">
+                    
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

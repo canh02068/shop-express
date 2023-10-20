@@ -1,0 +1,113 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+                        <main>
+                            <div class="container-fluid px-4">
+                                <h1 class="mt-4">Nhân Viên</h1>
+                                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item active">Nhân Viên</li>
+                                </ol>
+                                <div class="card mb-4">
+                                    <div class="card-header">
+                                        <i class="fas fa-table me-1"></i> Thông tin
+                                    </div>
+                                    <a href="/admin/nhanvien/create">
+                                        <button class="btn-info mr-10" style="float: left; color: white;">Add</button>
+                                    </a>
+                                    <div class="card-body">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Họ Tên</th>
+                                                    <th scope="col">Giới Tính</th>
+                                                    <th scope="col">Ngày Sinh</th>
+                                                    <th scope="col">Địa Chỉ</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">SĐT</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% nhanvien.forEach(function(item) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <%= item.NhanVienID %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.HotenNV %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.GioitinhNV %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.NgaysinhNV %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.diachiNV %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.EmailNv %>
+                                                        </td>
+                                                        <td>
+                                                            <%= item.SdtNV %>
+                                                        </td>
+                                                        <td>
+                                                            <a href="/admin/nhanvien/update/<%= item.NhanVienID %>">
+                                                                <button class="btn-info">edit</button>
+                                                            </a>
+                                                            <a href="">
+                                                                <button onclick="deleteUser('<%= item.NhanVienID %>')" class="btn-danger">delete</button>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <% }); %>
+                                                        <script>
+                                                            function deleteUser(userId) {
+                                                                if (confirm('Bạn có chắc chắn muốn xóa? ')) {
+                                                                    fetch(`/admin/nhanvien/delete/${userId}`, {
+                                                                            method: 'DELETE',
+                                                                        })
+                                                                        .then(response => {
+                                                                            if (!response.ok) {
+                                                                                throw new Error('Lỗi khi xóa');
+                                                                            }
+                                                                            return response.json();
+                                                                        })
+                                                                        .then(data => {
+                                                                            alert(data.message);
+                                                                            location.reload(); // Tải lại trang sau khi xóa thành công
+                                                                        })
+                                                                        .catch(error => {
+                                                                            console.error(error);
+                                                                            alert('Đã có lỗi xảy ra.');
+                                                                        });
+                                                                }
+                                                            }
+                                                        </script>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                        <footer class="py-4 bg-light mt-auto">
+                            <div class="container-fluid px-4">
+                                <div class="d-flex align-items-center justify-content-between small">
+                                    <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                                    <div>
+                                        <a href="#">Privacy Policy</a> &middot;
+                                        <a href="#">Terms &amp; Conditions</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

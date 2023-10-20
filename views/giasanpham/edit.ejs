@@ -1,0 +1,22 @@
+<%- include('../shared/admin/header') -%>
+
+    <body class="sb-nav-fixed">
+        <!-- top -->
+        <%- include('../shared/admin/top') -%>
+            <div id="layoutSidenav">
+                <!-- left -->
+                <%- include('../shared/admin/left') -%>
+                    <!-- content -->
+                    <div id="layoutSidenav_content">
+
+                        <form class="m-5" action="/admin/giasanpham/update/<%= giasanpham.giasanphamID %>" method="post">
+                            <div class="form-group">
+                                <label for="TenLH">Tên Hàng</label>
+                                <input type="text" name="TenLH" value="<%= giasanpham.TenLH %>" class="form-control" id="TenLH" placeholder="<%= giasanpham.TenLH %>">
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+                        </form>
+                        <%- include('../shared/admin/footerMini') -%>
+                    </div>
+            </div>
+            <%- include('../shared/admin/footer') -%>

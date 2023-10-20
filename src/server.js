@@ -4,6 +4,11 @@ const path = require('path');
 const loaiSPRoute = require('./router/loaiSPRoute');
 const SanPhamRoute = require('./router/SanPhamRoute');
 const nhaccRoute = require('./router/nhaccRoute');
+const nhasxRoute = require('./router/nhasxRoute');
+const khachhangRoute = require('./router/khachhangRoute');
+const nhanvienRoute = require('./router/nhanvienRoute');
+const giasanphamRoute = require('./router/giasanphamRoute');
+const homeRoute = require('./router/homeRoute')
 const session = require('express-session');
 const flash = require('express-flash');
 const methodOverride = require('method-override');
@@ -16,14 +21,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-    res.send('tao là hoàn gà gà gà  ');
-});
+// app.get('/', (req, res) => {
+//     res.send('tao là hoàn gà gà gà  ');
+// });
 
-app.use('/admin', loaiSPRoute)
-app.use('/admin', SanPhamRoute)
-app.use('/admin', nhaccRoute)
+app.use('/admin', loaiSPRoute, nhanvienRoute, khachhangRoute, nhaccRoute, SanPhamRoute, giasanphamRoute, nhasxRoute)
 
+app.use('/home', homeRoute)
 // app.use('/api');
 
 app.set('view engine', 'ejs');
